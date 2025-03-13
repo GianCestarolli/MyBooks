@@ -1,9 +1,9 @@
-from models.livro import Livro
+from models.finalizados import Finalizado
 
-teste = Livro("Livro teste", "Eu", 2025, "Em andamento")
+o_hobbit = Finalizado("O Hobbit", "J.R Tolkien", 1937, 8)
 
 def main():
-    print(teste)
+    print(o_hobbit)
 
 if __name__ == '__main__':
     main()
