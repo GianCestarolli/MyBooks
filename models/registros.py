@@ -1,4 +1,4 @@
-from models.finalizados import Finalizado
+from models.livros.finalizado import Finalizado
 import os
 
 class Registros:
@@ -7,9 +7,8 @@ class Registros:
         os.system("cls")
         nomeLivro = input("Digite o nome do livro: ")
         autorLivro = input("Digite o autor: ")
-        anoLivro = input("Digite o ano de lançamento: ")
         notaLivro = input("Digite sua nota: ")
-        Finalizado(nomeLivro, autorLivro, anoLivro, notaLivro)
+        Finalizado(nomeLivro, autorLivro, notaLivro)
         os.system("cls")
         print("Livro registrado com sucesso!\n")
         input("Digite qualquer coisa para retornar: ")
