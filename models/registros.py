@@ -1,6 +1,7 @@
+import os
+import json
 from models.livros.finalizado import Finalizado
 from models.livros.dropado import Dropado
-import os
 
 class Registros:
     def registrarFinalizado():
@@ -10,6 +11,7 @@ class Registros:
         autorLivro = input("Digite o autor: ")
         notaLivro = input("Digite sua nota: ")
         Finalizado(nomeLivro, autorLivro, notaLivro)
+        Registros.salvar_finalizados()
         os.system("cls")
         print("Livro registrado com sucesso!\n")
         input("Digite qualquer coisa para retornar: ")
@@ -28,3 +30,16 @@ class Registros:
         input("Digite qualquer coisa para retornar: ")
         os.system("cls")
         Sistema.menu()
+
+    def salvar_finalizados():
+        data_finalizados = []
+        for livro in Finalizado.livros_finalizados:
+            data_finalizados.append({
+                "nome": livro.nome,
+                "autor": livro.autor,
+                "nota": livro.minha_nota
+            })
+        with open ("livros_finalizados.json", "w") as arquivo:
+            json.dump(data_finalizados, arquivo, indent = 4)
+
+
