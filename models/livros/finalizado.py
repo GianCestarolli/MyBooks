@@ -11,6 +11,6 @@ class Finalizado(Livro):
         return super().__str__() + f'  {self._minha_nota}'
     
     @classmethod
-    def listar_finalizados(cls):
+    def listarFinalizados(cls):
         for livro in cls.livros_finalizados:
             print (f'\n{livro._nome} | Autor: {livro._autor} | Minha nota: {livro._minha_nota}\n')
