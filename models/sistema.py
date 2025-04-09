@@ -9,7 +9,8 @@ class Sistema:
         print("1. Registrar livro finalizado\n"
               "2. Listar livros\n"
               "3. Registrar livro dropado\n"
-              "4. Listar livros dropados\n")
+              "4. Listar livros dropados\n"
+              "5. Sair")
         resposta = input("Escolha uma opção: ")
         if resposta == "1":
             Registros.registrarFinalizado()
@@ -20,5 +21,7 @@ class Sistema:
             Registros.registrarDropado()
         elif resposta == "4":
             Dropado.listarDropados()
+        elif resposta == "5":
+            quit()
         
     
