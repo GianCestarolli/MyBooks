@@ -32,14 +32,24 @@ class Registros:
         Sistema.menu()
 
     def salvar_finalizados():
-        data_finalizados = []
+        # Lê o arquivo JSON existente, se houver, para preservar os dados anteriores
+        try:
+            with open("livros_finalizados.json", "r") as arquivo:
+                data_finalizados = json.load(arquivo)
+        except (FileNotFoundError, json.JSONDecodeError):
+            # Caso o arquivo não exista ou esteja vazio, inicializa com uma lista vazia
+            data_finalizados = []
+
+        # Adiciona os livros registrados na lista de dados
         for livro in Finalizado.livros_finalizados:
             data_finalizados.append({
                 "nome": livro.nome,
                 "autor": livro.autor,
                 "nota": livro.minha_nota
             })
-        with open ("livros_finalizados.json", "w") as arquivo:
-            json.dump(data_finalizados, arquivo, indent = 4)
+        
+        # Escreve a lista de dados atualizada no arquivo JSON
+        with open("livros_finalizados.json", "w") as arquivo:
+            json.dump(data_finalizados, arquivo, indent=4)
 
 
